@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IResponsePostList } from './types';
+import { IResponsePostList, TAG } from './types';
 
 const instance = axios.create({
   headers: {
@@ -26,10 +26,17 @@ export const getPostById = (id: string) => {
   return instance.get(`/post/${id}`);
 };
 
-export const updatePostById = () => {
-  return null;
+export const updatePostById = (id: string, title: string, content: string, tag: TAG) => {
+  return (
+    instance.put(`posts/${id}`),
+    {
+      title,
+      content,
+      tag,
+    }
+  );
 };
 
-export const deletePostById = () => {
-  return null;
+export const deletePostById = (id: string) => {
+  return instance.delete(`/posts/${id}`);
 };

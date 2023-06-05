@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { deletePostById, getPostById } from '../api';
@@ -60,6 +60,7 @@ const Text = styled.p`
 `;
 
 const Post = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const { postId } = params;
   const [post, setPost] = useState<IPost | null>(null);
@@ -85,6 +86,8 @@ const Post = () => {
   };
 
   const requestDeletePostById = async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     await deletePostById(postId);
     navigate('/');
   };

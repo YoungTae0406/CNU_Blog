@@ -9,7 +9,7 @@ import Write from './pages/Write';
 
 function App() {
   return (
-    <Router basename={import.meta.env.DEV ? '/' : 'YoungTae0406/CNU_Blog/'}>
+    <Router basename={import.meta.env.DEV ? '/' : '/CNU_Blog/'}>
       <Routes>
         <Route element={<Header />}>
           <Route element={<Layout />}>
